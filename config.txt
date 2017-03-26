@@ -1,0 +1,2 @@
+testdb1 utf8 template0 testuser1 testpass1
+

@@ -1,0 +1,25 @@
+commit c33485b47faaf723684c70a919b8f0f4988433a6
+Author: root <root@lnxdsk>
+Date:   Sun Mar 26 08:22:54 2017 +0300
+
+    add port to Makefile
+
+diff --git a/Makefile b/Makefile
+index 9f1d812..306f930 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,12 +1,13 @@
+ SHELL    = /bin/bash
+ 
+ PG_HOST ?= localhost
++PG_PORT ?= 5433
+ DB_NAME ?= op
+ DB_USER ?= op
+ DB_PASS ?= op
+ 
+ all:
+-	PGPASSWORD=$(DB_PASS) psql -h $(PG_HOST) -U $(DB_USER) $(DB_NAME) -f make.sql
++	PGPASSWORD=$(DB_PASS) psql -h $(PG_HOST) --port=$(DB_PORT) -U $(DB_USER) $(DB_NAME) -f make.sql
+ 
+ clean: 
+ 	rm -f *.res rm make.tmp.sql
